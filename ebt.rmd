@@ -1,0 +1,59 @@
+---
+title: "R Notebook"
+output:
+  pdf_document: default
+  html_notebook: default
+---
+
+This is an [R Markdown](http://rmarkdown.rstudio.com) Notebook. When you execute code within the notebook, the results appear beneath the code. 
+
+Try executing this chunk by clicking the *Run* button within the chunk or by placing your cursor inside it and pressing *Ctrl+Shift+Enter*. 
+
+```{r}
+ebt.data<-read.csv('/home/nizam/Desktop/Sem4/project/data/ebt_2009to2017_cleaned.csv')
+dim(ebt.data)
+#head(ebt.data)
+colnames(ebt.data)
+```
+Year wise pair-plots of ebt
+```{r}
+ebt_2016<-ebt.data[ebt.data['intercept.year']==2016,]
+dim(ebt_2016)
+pairs(ebt_2016[,-c(5,9,12,13,14)])
+```
+
+```{r}
+# y <- ebt.data$Intercept.Time
+# X <- cbind(factor(ebt.data$person.age.group),factor(ebt.data$person.gender),factor(ebt.data$collision),factor(ebt.data$intercept.suburb),factor(ebt.data$intercept.year),factor(ebt.data$intercept.day),factor(ebt.data$distance.prior.to.intercept))
+# names(X)<-c('person.age.group','person.gender','collision','intercept.suburb','intercept.year','intercept.day','distance.prior.to.intercept')
+# colnames(ebt.data)
+```
+
+
+
+```{r}
+# model<-lm(y[1:18777]~factor(person.age.group)+factor(person.gender)+factor(collision)+factor(intercept.suburb)+factor(intercept.day)+factor(distance.prior.to.intercept),data = ebt.data[ebt.data$intercept.year==2009,])
+# summary(model)
+```
+```{r}
+# cats = apply(ebt.data[,-c(5,9,12,13,14)], 2, function(x) nlevels(as.factor(x)))
+# ebt.data$collision<-factor(ebt.data$collision)
+# ebt.data$intercept.year<-factor(ebt.data$intercept.year,ordered = T)
+# ebt.data$intercept.month<-factor(ebt.data$intercept.month)
+# head(ebt.data)
+# cats
+# mca.obj<-mca(ebt.data[,-c(5,9,12,13,14)],nf = 2,abbrev = T)
+# mca2_vars_df = data.frame(mca.obj$cs, Variable = rep(names(cats), cats))
+# library(ggplot2)
+# ggplot(data = mca2_vars_df,aes(x = X1, y = X2, label = rownames(mca2_vars_df))) 
+# geom_hline(yintercept = 0, colour = "gray70") 
+# geom_vline(xintercept = 0, colour = "gray70") 
+# geom_text(aes(colour = Variable))
+# ggtitle("MCA plot of variables using R package MASS")
+```
+
+Add a new chunk by clicking the *Insert Chunk* button on the toolbar or by pressing *Ctrl+Alt+I*.
+
+When you save the notebook, an HTML file containing the code and output will be saved alongside it (click the *Preview* button or press *Ctrl+Shift+K* to preview the HTML file).
+
+The preview shows you a rendered HTML copy of the contents of the editor. Consequently, unlike *Knit*, *Preview* does not run any R code chunks. Instead, the output of the chunk when it was last run in the editor is displayed.
