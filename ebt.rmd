@@ -17,16 +17,17 @@ colnames(ebt.data)
 ```
 Year wise pair-plots of ebt
 ```{r}
+ebt_2010<-ebt.data[ebt.data['intercept.year']==2010,]
+ebt_2013<-ebt.data[ebt.data['intercept.year']==2013,]
 ebt_2016<-ebt.data[ebt.data['intercept.year']==2016,]
-dim(ebt_2016)
-pairs(ebt_2016[,-c(5,9,12,13,14)])
 ```
 
 ```{r}
-# y <- ebt.data$Intercept.Time
-# X <- cbind(factor(ebt.data$person.age.group),factor(ebt.data$person.gender),factor(ebt.data$collision),factor(ebt.data$intercept.suburb),factor(ebt.data$intercept.year),factor(ebt.data$intercept.day),factor(ebt.data$distance.prior.to.intercept))
+y <- ebt.data$Intercept.Time
+X <- cbind(factor(ebt.data$person.age.group),factor(ebt.data$person.gender),factor(ebt.data$collision),factor(ebt.data$intercept.suburb),factor(ebt.data$intercept.year),factor(ebt.data$intercept.day),factor(ebt.data$distance.prior.to.intercept))
 # names(X)<-c('person.age.group','person.gender','collision','intercept.suburb','intercept.year','intercept.day','distance.prior.to.intercept')
 # colnames(ebt.data)
+
 ```
 
 
